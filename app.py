@@ -5,19 +5,13 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
 import pickle
 
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
+import os
+# Force TensorFlow to use the Keras 2 engine instead of Keras 3
+os.environ["TF_USE_LEGACY_KERAS"] = "1"
 
-# 1. Define your exact ANN architecture
-# (Replace input_shape with the number of features entering your model, e.g., 11 or 12)
-model = Sequential([
-    Dense(6, activation='relu', input_shape=(11,)), 
-    Dense(6, activation='relu'),
-    Dense(1, activation='sigmoid')
-])
 
-# 2. Load weights directly — bypasses all Keras file version conflicts!
-model.load_weights('model.weights.h5')
+# Load model
+model = tf.keras.models.load_model('model.h5')
 
 
 # Load the encoders and scaler
