@@ -3,16 +3,10 @@ import numpy as np
 import tensorflow as tf
 from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
 import pandas as pd
-import tf_keras as keras
 import pickle
 
-<<<<<<< HEAD
 # Load the trained model
 model = tf.keras.models.load_model('model.keras')
-=======
-# Load model using legacy tf_keras
-model = keras.models.load_model('model.h5')
->>>>>>> 614ee506da45f08fd8690daed0c01463e5eb9401
 
 # Load the encoders and scaler
 with open('label_encoder_gender.pkl', 'rb') as file:
